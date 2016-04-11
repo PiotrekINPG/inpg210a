@@ -1,4 +1,4 @@
-//lalalallalalllalala
+Witaj Piotrze!
 
 #include <stdio.h>
 #include <stdlib.h>
