@@ -1,0 +1,16 @@
+#include<stdio.h>
+#define ROZMIAR 100
+
+int main()
+{
+char znaki[ROZMIAR];
+fgets(znaki,ROZMIAR,stdin);
+int i;
+for(i=0; znaki[i]!='\0';i++)
+    {    
+    if(znaki[i]== '\t' || znaki[i]== ' ')
+        znaki[i] = '\n';
+    }
+puts(znaki);
+}
+   
