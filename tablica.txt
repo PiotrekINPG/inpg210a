@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void deleteMatrix(int*** ptab, int n)
+{
+  int i;
+  for(i=0;i<n;i++)
+        free((*ptab)[i]);
+  free(*ptab);
+  *ptab=NULL;
+}
+
+int **createMatrix(int n)
+{
+    int**tab=malloc(n*sizeof(*tab));
+    if(tab==NULL) return NULL;
+
+    int i;
+    for(i=0;i<n;i++)
+    {
+        tab[i]=malloc(n*sizeof(**tab));
+        if(tab==NULL)
+        {
+            deleteMatrix(&tab,i);
+            return NULL;
+        }
+    }
+    return tab;
+}
+
+void copyMatrix(int*** pdest, int** src, int n)
+{
+    int **dest=createMatrix(n);
+    if(dest==NULL)
+        return;
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            dest[i][j]=src[i][j];
+        }
+    }
+    *pdest=dest;
+}
+
+void fillMatrix( int**tab,int n)
+    {
+     int i,j,k=1;
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+               tab[i][j]=k;
+               k++;
+            }
+        }
+
+    }
+
+int main()
+{
+    int **tablica1;
+    int **tablica2;
+    int n;
+    printf("podaj rozmiar ");
+    scanf("%d",&n);
+    tablica1=createMatrix(n);
+    tablica2=createMatrix(n);
+    fillMatrix(tablica1,n);
+    copyMatrix(&tablica2,tablica1,n);
+    int i,j;
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+        {
+            printf("%3d",tablica2[i][j]);
+            if(j==n-1) printf("\n");
+        }
+  deleteMatrix(&tablica1,n);
+  deleteMatrix(&tablica2,n);
+
+    return 0;
+}
