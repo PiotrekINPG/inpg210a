@@ -1,6 +1,6 @@
 Witaj Piotrze! Ty równie¿ Pawle!
 
-WOWOWOOWO
+WOWOWOOWO DZIEÑ DOBRY
 #include <stdio.h>
 #include <stdlib.h>
 
