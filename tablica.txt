@@ -1,4 +1,4 @@
-Witaj Piotrze!
+Witaj Piotrze! Ty równie¿ Pawle!
 
 WOWOWOOWO
 #include <stdio.h>
